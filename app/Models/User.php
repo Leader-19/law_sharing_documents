@@ -53,47 +53,6 @@ class User extends Authenticatable
         ];
     }
 
-    /**
-     * 
-     * Relation ship with table
-     * 
-     */
-
-
-    public function weeklyWorklogs()
-    {
-        return $this->hasMany(WeeklyWorklog::class);
-    }
-
-    public function finalReports()
-    {
-        return $this->hasMany(FinalReport::class);
-    }
-
-    public function finalSlides()
-    {
-        return $this->hasMany(FinalSlide::class);
-    }
-
-    public function supervisor()
-    {
-        return $this->hasOne(Supervisor::class);
-    }
-
-    public function companyInterviews()
-    {
-        return $this->hasMany(CompanyInterview::class);
-    }
-
-    public function companyInternships()
-    {
-        return $this->hasMany(CompanyInternship::class);
-    }
-
-    public function score()
-    {
-        return $this->hasOne(Score::class);
-    }
 
     // User can upload many Documents
     public function documents()
