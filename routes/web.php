@@ -59,79 +59,50 @@ Route::resource('roles', RoleController::class)
 Route::resource('roles', RoleController::class)
     ->only(['index', 'show'])
     ->middleware('permission:roles.create|roles.edit|roles.delete|roles.view');
+/**
+ * End role route
+ */
 
+/**
+ * Categories route
+ */
+Route::resource('categories', CategoryController::class)
+    ->only(['create', 'store'])
+    ->middleware('permission:category.create');
+Route::resource('categories', CategoryController::class)
+    ->only(['edit', 'update'])
+    ->middleware('permission:category.edit');
+Route::resource('categories', CategoryController::class)
+    ->only(['destroy'])
+    ->middleware('permission:category.delete');
+Route::resource('categories', CategoryController::class)
+    ->only(['index', 'show'])
+    ->middleware('permission:category.create|category.edit|category.delete|category.view');
 
-Route::resource('categories', CategoryController::class);
+/**
+ * End Categories route
+ */
 
-Route::resource('documents', DocumentController::class);
+/**
+ * Documents route
+ */
+Route::resource('documents', DocumentController::class)
+    ->only(['create', 'store'])
+    ->middleware('permission:document.create');
+Route::resource('documents', DocumentController::class)
+    ->only(['edit', 'update'])
+    ->middleware('permission:document.edit');;
+Route::resource('documents', DocumentController::class)
+    ->only(['destroy'])
+    ->middleware('permission:document.delete');;
+Route::resource('documents', DocumentController::class)
+    ->only(['index', 'show'])
+    ->middleware('permission:document.create|document.edit|document.delete|document.view');;
 
-// /**
-//  * Internship route
-//  */
+/**
+ * End Documents route
+ */
 
-// Route::resource('internships', CompanyInternshipController::class);
-
-// /**
-//  * Interview route
-//  */
-
-// Route::resource('company-interviews', CompanyInterviewsController::class);
-
-// /**
-//  * Final slide route
-//  */
-
-// Route::resource('final-slides', FinalSlideController::class);
-
-// // Show evaluate form (GET)
-// Route::get('/final-slides/{slide}/evaluate', [FinalSlideController::class, 'evaluate'])
-//     ->name('final-slides.evaluate');
-
-
-// // Save score (POST)
-// Route::post('/final-slides/{slide}/evaluate-score', [FinalSlideController::class, 'evaluateScoreFinalSlide'])
-//     ->name('final-slides.evaluate-score');
-
-// /**
-//  * Final report route
-//  */
-
-// Route::resource('final-reports', FinalReportController::class);
-
-// // Show evaluate form (GET)
-// Route::get(
-//     '/final-reports/{id}/evaluate',
-//     [FinalReportController::class, 'evaluate']
-// )->name('final-reports.evaluate');
-
-// // Save score (POST)
-// Route::post(
-//     '/final-reports/{id}/evaluate-score',
-//     [FinalReportController::class, 'evaluateScoreFinalReports']
-// )->name('final-reports.evaluate-score');
-
-// /**
-//  * Contact Supervisor
-//  */
-
-// Route::resource('contact-supervisors', ContactSupervisorController::class);
-
-// /**
-//  * weekly worklog route
-//  */
-
-// Route::resource('weekly-worklogs', WeeklyWorklogController::class);
-// // Show evaluate form (GET)
-// Route::get(
-//     '/weekly-worklogs/{id}/evaluate',
-//     [WeeklyWorklogController::class, 'evaluate']
-// )->name('weekly-worklogs.evaluate');
-
-// // Save score (POST)
-// Route::post(
-//     '/weekly-worklogs/{id}/evaluate-score',
-//     [WeeklyWorklogController::class, 'evaluateScoreWeekly']
-// )->name('weekly-worklogs.evaluate-score');
 
 
 
