@@ -15,7 +15,7 @@ interface User {
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
-        title: 'Roles',
+        title: 'តួនាទី',
         href: '/roles',
     },
 ];
@@ -34,7 +34,7 @@ function deleteRole(id) {
 
 <template>
 
-    <Head title="Roles" />
+    <Head title="តួនាទី" />
 
 
     <AppLayout :breadcrumbs="breadcrumbs">
@@ -45,15 +45,15 @@ function deleteRole(id) {
 
             <Link v-if="can('roles.create')" href="/roles/create"
                 class="cursor-pointer px-3 py-2 text-xs font-medium text-white bg-blue-500 rounded">
-                Create role
+                បង្កើត​ តួនាទី​ថ្មី
             </Link>
 
             <table class="w-full mt-3 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700">
-                    <th scope="col" class="px-6 py-3">ID</th>
-                    <th scope="col" class="px-6 py-3">Name</th>
-                    <th scope="col" class="px-6 py-3">Role Permissions</th>
-                    <th scope="col" class="px-6 py-3">Actions</th>
+                    <th scope="col" class="px-6 py-3">ល.រ</th>
+                    <th scope="col" class="px-6 py-3">ឈ្មោះ</th>
+                    <th scope="col" class="px-6 py-3">ការអនុញ្ញាត</th>
+                    <th scope="col" class="px-6 py-3">សកម្មភាព</th>
                 </thead>
 
                 <tbody>
@@ -81,16 +81,16 @@ function deleteRole(id) {
 
                             <Link :href="route('roles.show', role.id)"
                                 class="cursor-pointer px-3 py-2 text-xs mr-2 font-medium text-white bg-gray-700 rounded">
-                                Show
+                                បង្ហាញ
                             </Link>
 
                             <Link v-if="can('roles.edit')" :href="route('roles.edit', role.id)"
                                 class="cursor-pointer px-3 py-2 text-xs font-medium text-white bg-blue-500 rounded">
-                                Edit
+                                កែរ
                             </Link>
                             <button v-if="can('roles.delete')" @click="deleteRole(role.id)"
                                 class="cursor-pointer px-3 py-2 text-xs font-medium text-white bg-red-500 rounded ml-2">
-                                Delete
+                                លុប
                             </button>
                         </td>
                     </tr>

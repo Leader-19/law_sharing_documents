@@ -31,67 +31,22 @@ class PermissionSeeder extends Seeder
             "roles.delete",
 
             /**
-             * Worklog permission
+             * documents permission
              */
 
-            "worklog.upload",
-            "worklog.edit",
-            "worklog.delete",
-            "worklog.view",
+            "document.upload",
+            "document.edit",
+            "document.delete",
+            "document.view",
 
             /**
-             * slide permission
+             * Category
              */
+            "category.upload",
+            "category.edit",
+            "category.delete",
+            "category.view",
 
-            "slide.upload",
-            "slide.edit",
-            "slide.delete",
-            "slide.view",
-
-            /**
-             * final report permission
-             */
-
-            "report.upload",
-            "report.edit",
-            "report.delete",
-            "report.view",
-
-            /**
-             * contact supervisor permission
-             */
-
-            "supervisorContact.create",
-            "supervisorContact.edit",
-            "supervisorContact.delete",
-            "supervisorContact.view",
-
-            /**
-             * company interview permission
-             */
-
-            "companyInterview.create",
-            "companyInterview.edit",
-            "companyInterview.delete",
-            "companyInterview.view",
-
-            /**
-             * company internship permission
-             */
-
-            "companyInternship.create",
-            "companyInternship.edit",
-            "companyInternship.delete",
-            "companyInternship.view",
-
-            /**
-             * score permission
-             */
-
-            "score.create",
-            "score.edit",
-            "score.delete",
-            "score.view"
         ];
 
         // foreach ($permissions as $key => $value) {

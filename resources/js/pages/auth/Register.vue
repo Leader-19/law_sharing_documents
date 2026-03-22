@@ -13,8 +13,8 @@ import { Form, Head } from '@inertiajs/vue3';
 
 <template>
     <AuthBase
-        title="Create an account"
-        description="Enter your details below to create your account"
+        title="បង្កើតគណនីយថ្មី"
+        description="សូមបំពេញ​ ព័ត៍មានខាងក្រោម"
     >
         <Head title="Register" />
 
@@ -26,7 +26,7 @@ import { Form, Head } from '@inertiajs/vue3';
         >
             <div class="grid gap-6">
                 <div class="grid gap-2">
-                    <Label for="name">Name</Label>
+                    <Label for="name">ឈ្មោះ</Label>
                     <Input
                         id="name"
                         type="text"
@@ -41,7 +41,7 @@ import { Form, Head } from '@inertiajs/vue3';
                 </div>
 
                 <div class="grid gap-2">
-                    <Label for="email">Email address</Label>
+                    <Label for="email">អុីម៉ែល</Label>
                     <Input
                         id="email"
                         type="email"
@@ -55,7 +55,7 @@ import { Form, Head } from '@inertiajs/vue3';
                 </div>
 
                 <div class="grid gap-2">
-                    <Label for="password">Password</Label>
+                    <Label for="password">លេខសម្ងាត់</Label>
                     <Input
                         id="password"
                         type="password"
@@ -69,7 +69,7 @@ import { Form, Head } from '@inertiajs/vue3';
                 </div>
 
                 <div class="grid gap-2">
-                    <Label for="password_confirmation">Confirm password</Label>
+                    <Label for="password_confirmation">បញ្ជាក់​​ លេខសម្ងាត់</Label>
                     <Input
                         id="password_confirmation"
                         type="password"
@@ -90,17 +90,17 @@ import { Form, Head } from '@inertiajs/vue3';
                     data-test="register-user-button"
                 >
                     <Spinner v-if="processing" />
-                    Create account
+                    បង្កើតគណនីយថ្មី
                 </Button>
             </div>
 
             <div class="text-center text-sm text-muted-foreground">
-                Already have an account?
+                មានគណនីយ?
                 <TextLink
                     :href="login()"
                     class="underline underline-offset-4"
                     :tabindex="6"
-                    >Log in</TextLink
+                    >ចូលទៅកាន់គណនីយ</TextLink
                 >
             </div>
         </Form>

@@ -21,8 +21,8 @@ defineProps<{
 
 <template>
     <AuthBase
-        title="Log in to your account"
-        description="Enter your email and password below to log in"
+        title="ចូលទៅកាន់គណនីយយ របស់លោកអ្នក"
+        description="ប្រើប្រាស់ អុីម៉ែល និង​ លេខសម្ងាត់ ដើម្បីចូលទៅកាន់​ គណនីយ របស់លោកអ្នក"
         class="shadow-lg rounded-xl p-6"
     >
         <Head title="Log in" />
@@ -42,7 +42,7 @@ defineProps<{
         >
             <div class="grid gap-6">
                 <div class="grid gap-2">
-                    <Label for="email">Email address</Label>
+                    <Label for="email">អុីម៉ែល</Label>
                     <Input
                         id="email"
                         type="email"
@@ -58,14 +58,14 @@ defineProps<{
 
                 <div class="grid gap-2">
                     <div class="flex items-center justify-between">
-                        <Label for="password">Password</Label>
+                        <Label for="password">លេខសម្ងាត់</Label>
                         <TextLink
                             v-if="canResetPassword"
                             :href="request()"
                             class="text-sm"
                             :tabindex="5"
                         >
-                            Forgot password?
+                            ភ្លេចលេខសម្ងាត់?
                         </TextLink>
                     </div>
                     <Input
@@ -83,7 +83,7 @@ defineProps<{
                 <div class="flex items-center justify-between">
                     <Label for="remember" class="flex items-center space-x-3">
                         <Checkbox id="remember" name="remember" :tabindex="3" />
-                        <span>Remember me</span>
+                        <span>រំលឹក</span>
                     </Label>
                 </div>
 
@@ -95,7 +95,7 @@ defineProps<{
                     data-test="login-button"
                 >
                     <Spinner v-if="processing" />
-                    Log in
+                   ចូលទៅកាន់គណនីយ
                 </Button>
             </div>
 
@@ -103,8 +103,8 @@ defineProps<{
                 class="text-center text-sm text-muted-foreground"
                 v-if="canRegister"
             >
-                Don't have an account?
-                <TextLink :href="register()" :tabindex="5">Sign up</TextLink>
+                អត់ទាន់មាន គណនីយ?
+                <TextLink :href="register()" :tabindex="5">បង្កើតគណនីយថ្មី</TextLink>
             </div>
         </Form>
     </AuthBase>

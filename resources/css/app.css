@@ -170,3 +170,11 @@
         @apply bg-background text-foreground;
     }
 }
+
+/* 
+khmer font
+*/
+
+body {
+  font-family: 'Battambang', sans-serif;
+}

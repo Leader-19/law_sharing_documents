@@ -18,62 +18,62 @@ import AppLogo from './AppLogo.vue';
 
 const mainNavItems: NavItem[] = [
     {
-        title: 'Dashboard',
+        title: 'តារាង គ្របគ្រង​ ទិន្នន័យ',
         href: dashboard(),
         icon: LayoutGrid,
         items: undefined
     },
 
     {
-        title: 'Users',
+        title: 'អ្នកប្រើប្រាស់',
         href: '/users',
         icon: Users,
         items: undefined
     },
 
     {
-        title: 'Roles',
+        title: 'តួនាទី',
         href: '/roles',
         icon: Notebook,
         items: undefined
     },
 
      {
-        title: 'Weekly Worklog',
-        href: '/weekly-worklogs',
+        title: 'ប្រភេទ',
+        href: '/categories',
         icon: Calendar,
         items: undefined
     },
     {
-        title: 'Final Report',
-        href: '/final-reports',
+        title: 'ឯកសារ',
+        href: '/documents',
         icon: FileText,
         items: undefined
     },
-    {
-        title: 'Final Slides',
-        href: '/final-slides',
-        icon: Presentation,
-        items: undefined
-    },
-    {
-        title: 'Contact Supervisor',
-        href: '/contact-supervisors',
-        icon: Phone,
-        items: undefined
-    },
-     {
-        title: 'Company Interviews',
-        href: '/company-interviews',
-        icon: MessagesSquare,
-        items: undefined
-    },
-     {
-        title: 'Company Internship',
-        href: '/internships',
-        icon: BriefcaseBusiness,
-        items: undefined
-    },
+    // {
+    //     title: 'Final Slides',
+    //     href: '/final-slides',
+    //     icon: Presentation,
+    //     items: undefined
+    // },
+    // {
+    //     title: 'Contact Supervisor',
+    //     href: '/contact-supervisors',
+    //     icon: Phone,
+    //     items: undefined
+    // },
+    //  {
+    //     title: 'Company Interviews',
+    //     href: '/company-interviews',
+    //     icon: MessagesSquare,
+    //     items: undefined
+    // },
+    //  {
+    //     title: 'Company Internship',
+    //     href: '/internships',
+    //     icon: BriefcaseBusiness,
+    //     items: undefined
+    // },
 ];
 
 

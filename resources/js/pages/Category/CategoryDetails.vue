@@ -1,19 +1,21 @@
 <script setup lang="ts">
 import AppLayout from '@/layouts/AppLayout.vue';
+import roles from '@/routes/roles';
 import { type BreadcrumbItem } from '@/types';
 import { Head, Link, router, useForm } from '@inertiajs/vue3';
+import { User } from 'lucide-vue-next';
 import { route } from 'ziggy-js';
 
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
-        title: 'Final Slide Show',
-        href: '/final-slides',
+        title: 'បង្ហាញប្រភេទ',
+        href: '/categories',
     },
 ];
 
 const props = defineProps({
-    slide: Object
+    "category" : Object,
 });
 
 
@@ -23,7 +25,7 @@ const props = defineProps({
 
 <template>
 
-    <Head title="Slide Show" />
+    <Head title="បង្ហាញប្រភេទ" />
 
 
     <AppLayout :breadcrumbs="breadcrumbs">
@@ -32,18 +34,15 @@ const props = defineProps({
 
         <div class="over-flow-x-auto p-3">
 
-            <Link :href="route('final-slides.index')"
+            <Link :href="route('categories.index')"
                 class="cursor-pointer px-3 py-2 text-xs mb-3 font-medium text-white bg-blue-500 rounded">
-                Back
+                ត្រឡប់ក្រោយ
             </Link>
 
             <div>
-                <p><strong>Name</strong></p>
-                <p><strong>WeekLy WorkLog Details</strong>
-                    <span v-for="sd in slide" :key="sd" class="mr-1 text-xs font-medium px-2.5 py-0.5">
-                        {{ sd }}
-                    </span>
-                </p>
+                <p><strong>ឈ្មោះ</strong>{{ category.title }}</p>
+                <p><strong>ការរៀបរាប់</strong>{{ category.description }}</p>
+               
             </div>
         </div>
     </AppLayout>

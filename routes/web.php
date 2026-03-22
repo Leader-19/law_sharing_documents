@@ -1,13 +1,9 @@
 <?php
 
-use App\Http\Controllers\CompanyInternshipController;
-use App\Http\Controllers\CompanyInterviewsController;
-use App\Http\Controllers\ContactSupervisorController;
-use App\Http\Controllers\FinalReportController;
-use App\Http\Controllers\FinalSlideController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\WeeklyWorklogController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Laravel\Fortify\Features;
@@ -65,73 +61,79 @@ Route::resource('roles', RoleController::class)
     ->middleware('permission:roles.create|roles.edit|roles.delete|roles.view');
 
 
-/**
- * Internship route
- */
+Route::resource('categories', CategoryController::class);
 
-Route::resource('internships', CompanyInternshipController::class);
+Route::resource('documents', DocumentController::class);
 
-/**
- * Interview route
- */
+// /**
+//  * Internship route
+//  */
 
-Route::resource('company-interviews', CompanyInterviewsController::class);
+// Route::resource('internships', CompanyInternshipController::class);
 
-/**
- * Final slide route
- */
+// /**
+//  * Interview route
+//  */
 
-Route::resource('final-slides', FinalSlideController::class);
+// Route::resource('company-interviews', CompanyInterviewsController::class);
 
-// Show evaluate form (GET)
-Route::get('/final-slides/{slide}/evaluate', [FinalSlideController::class, 'evaluate'])
-    ->name('final-slides.evaluate');
+// /**
+//  * Final slide route
+//  */
+
+// Route::resource('final-slides', FinalSlideController::class);
+
+// // Show evaluate form (GET)
+// Route::get('/final-slides/{slide}/evaluate', [FinalSlideController::class, 'evaluate'])
+//     ->name('final-slides.evaluate');
 
 
-// Save score (POST)
-Route::post('/final-slides/{slide}/evaluate-score', [FinalSlideController::class, 'evaluateScoreFinalSlide'])
-    ->name('final-slides.evaluate-score');
+// // Save score (POST)
+// Route::post('/final-slides/{slide}/evaluate-score', [FinalSlideController::class, 'evaluateScoreFinalSlide'])
+//     ->name('final-slides.evaluate-score');
 
-/**
- * Final report route
- */
+// /**
+//  * Final report route
+//  */
 
-Route::resource('final-reports', FinalReportController::class);
+// Route::resource('final-reports', FinalReportController::class);
 
-// Show evaluate form (GET)
-Route::get(
-    '/final-reports/{id}/evaluate',
-    [FinalReportController::class, 'evaluate']
-)->name('final-reports.evaluate');
+// // Show evaluate form (GET)
+// Route::get(
+//     '/final-reports/{id}/evaluate',
+//     [FinalReportController::class, 'evaluate']
+// )->name('final-reports.evaluate');
 
-// Save score (POST)
-Route::post(
-    '/final-reports/{id}/evaluate-score',
-    [FinalReportController::class, 'evaluateScoreFinalReports']
-)->name('final-reports.evaluate-score');
+// // Save score (POST)
+// Route::post(
+//     '/final-reports/{id}/evaluate-score',
+//     [FinalReportController::class, 'evaluateScoreFinalReports']
+// )->name('final-reports.evaluate-score');
 
-/**
- * Contact Supervisor
- */
+// /**
+//  * Contact Supervisor
+//  */
 
-Route::resource('contact-supervisors', ContactSupervisorController::class);
+// Route::resource('contact-supervisors', ContactSupervisorController::class);
 
-/**
- * weekly worklog route
- */
+// /**
+//  * weekly worklog route
+//  */
 
-Route::resource('weekly-worklogs', WeeklyWorklogController::class);
-// Show evaluate form (GET)
-Route::get(
-    '/weekly-worklogs/{id}/evaluate',
-    [WeeklyWorklogController::class, 'evaluate']
-)->name('weekly-worklogs.evaluate');
+// Route::resource('weekly-worklogs', WeeklyWorklogController::class);
+// // Show evaluate form (GET)
+// Route::get(
+//     '/weekly-worklogs/{id}/evaluate',
+//     [WeeklyWorklogController::class, 'evaluate']
+// )->name('weekly-worklogs.evaluate');
 
-// Save score (POST)
-Route::post(
-    '/weekly-worklogs/{id}/evaluate-score',
-    [WeeklyWorklogController::class, 'evaluateScoreWeekly']
-)->name('weekly-worklogs.evaluate-score');
+// // Save score (POST)
+// Route::post(
+//     '/weekly-worklogs/{id}/evaluate-score',
+//     [WeeklyWorklogController::class, 'evaluateScoreWeekly']
+// )->name('weekly-worklogs.evaluate-score');
+
+
 
 
 require __DIR__ . '/settings.php';

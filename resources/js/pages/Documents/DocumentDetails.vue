@@ -7,13 +7,13 @@ import { route } from 'ziggy-js';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
-        title: 'Show Company Interview Details',
-        href: '/company-interviews',
+        title: 'បង្ហាញ ឯកសារ',
+        href: '/documents',
     },
 ];
 
 const props = defineProps({
-    interview: Object
+    document: Object
 });
 
 
@@ -23,7 +23,7 @@ const props = defineProps({
 
 <template>
 
-    <Head title="Show Company Interview Details" />
+    <Head title="បង្ហាញ ឯកសារ" />
 
 
     <AppLayout :breadcrumbs="breadcrumbs">
@@ -32,16 +32,16 @@ const props = defineProps({
 
         <div class="over-flow-x-auto p-3">
 
-            <Link :href="route('company-interviews.index')"
+            <Link :href="route('documents.index')"
                 class="cursor-pointer px-3 py-2 text-xs mb-3 font-medium text-white bg-blue-500 rounded">
-                Back
+                ត្រឡប់ ក្រោយ
             </Link>
 
             <div>
-                <p><strong>Company Interview</strong></p>
-                <p><strong>Company Interview Details</strong>
-                    <span v-for="int in interview" :key="int" class="mr-1 text-xs font-medium px-2.5 py-0.5">
-                        {{ int }}
+                <p><strong>ឯកសារ</strong></p>
+                <p><strong>បង្ហាញ ឯកសារ</strong>
+                    <span v-for="doc in document" :key="doc" class="mr-1 text-xs font-medium px-2.5 py-0.5">
+                        {{ doc }}
                     </span>
                 </p>
             </div>
