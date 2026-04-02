@@ -49,7 +49,9 @@ function deleteCategory(id) {
         <div class="overflow-x-auto p-3">
 
             <!-- Create Button -->
-            <Link :href="route('categories.create')" class="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold
+            <Link 
+            v-if="can('category.create')"
+            :href="route('categories.create')" class="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold
                        text-white bg-blue-600 rounded-md hover:bg-blue-700 transition">
                 <Plus class="w-4 h-4" />
                 បង្កើត​ ប្រភេទថ្មី

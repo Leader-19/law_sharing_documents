@@ -34,7 +34,7 @@ class PermissionSeeder extends Seeder
              * documents permission
              */
 
-            "document.upload",
+            "document.create",
             "document.edit",
             "document.delete",
             "document.view",
@@ -42,7 +42,7 @@ class PermissionSeeder extends Seeder
             /**
              * Category
              */
-            "category.upload",
+            "category.create",
             "category.edit",
             "category.delete",
             "category.view",

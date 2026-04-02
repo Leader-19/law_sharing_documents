@@ -10,6 +10,7 @@ import {
 } from 'lucide-vue-next'
 import { type BreadcrumbItem } from '@/types'
 import { ref, computed } from 'vue'
+import { can } from '@/lib/can'
 
 interface Document {
     id: number
@@ -62,6 +63,7 @@ function deleteDocument(id: number) {
 
             <!-- Create Button -->
             <Link
+                v-if="can('document.create')"
                 :href="route('documents.create')"
                 class="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold text-white bg-blue-600 rounded-md hover:bg-blue-700 transition"
             >

@@ -12,19 +12,15 @@ class DocumentController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        // $documents = Document::all();
-        // return Inertia::render("Documents/DocumentIndex", [
-        //     "documents" => $documents
-        // ]);
-
         $documents = Document::with('category')->get();
         $categories = Category::all();
 
-        return Inertia::render("Documents/DocumentIndex", [
-            "documents" => $documents,
-            "categories" => $categories,
+        // Always return Inertia response for Inertia requests
+        return Inertia::render('Documents/DocumentIndex', [
+            'documents' => $documents,
+            'categories' => $categories,
         ]);
     }
 
@@ -33,7 +29,7 @@ class DocumentController extends Controller
      */
     public function create()
     {
-        return Inertia::render("Documents/DocumentCreate", [
+        return Inertia::render('Documents/DocumentCreate', [
             'categories' => Category::all(),
         ]);
     }
@@ -51,8 +47,7 @@ class DocumentController extends Controller
             'category_id' => 'required|exists:categories,id',
         ]);
 
-        $path = $request->file('doc_upload')
-            ->store('documents', 'public');
+        $path = $request->file('doc_upload')->store('documents', 'public');
 
         Document::create([
             'user_id' => auth()->id(),
@@ -63,19 +58,20 @@ class DocumentController extends Controller
             'description' => $request->description,
         ]);
 
+        // Use redirect with Inertia for successful creation
         return redirect()->route('documents.index')
             ->with('success', 'Document created successfully!');
     }
-
 
     /**
      * Display the specified resource.
      */
     public function show(string $id)
     {
+        $document = Document::with('category')->findOrFail($id);
 
-        return Inertia::render("Documents/DocumentDetails", [
-            "document" => Document::findOrFail($id)
+        return Inertia::render('Documents/DocumentDetails', [
+            'document' => $document,
         ]);
     }
 
@@ -85,11 +81,11 @@ class DocumentController extends Controller
     public function edit(string $id)
     {
         $document = Document::findOrFail($id);
-        $categories = Category::all(); // fetch categories
+        $categories = Category::all();
 
-        return Inertia::render("Documents/DocumentUpdate", [
+        return Inertia::render('Documents/DocumentUpdate', [
             'document' => $document,
-            'categories' => $categories, // send to Vue
+            'categories' => $categories,
         ]);
     }
 
@@ -105,17 +101,18 @@ class DocumentController extends Controller
             'doc_title' => 'required|string|max:255',
             'doc_upload' => 'nullable|file|max:100000',
             'description' => 'nullable|string|max:500',
-            'category_id' => 'nullable|exists:categories,id', // make nullable
+            'category_id' => 'nullable|exists:categories,id',
         ]);
 
+        $document->doc_name = $request->doc_name;
+        $document->doc_title = $request->doc_title;
+        $document->description = $request->description;
         $document->category_id = $request->category_id;
+
         if ($request->hasFile('doc_upload')) {
             $path = $request->file('doc_upload')->store('documents', 'public');
             $document->doc_upload = $path;
         }
-        $document->doc_name = $request->doc_name;
-        $document->doc_title = $request->doc_title;
-        $document->description = $request->description;
 
         $document->save();
 
@@ -128,8 +125,16 @@ class DocumentController extends Controller
      */
     public function destroy(string $id)
     {
-        Document::destroy($id);
+        $document = Document::findOrFail($id);
 
-        return to_route("documents.index");
+        // Optionally delete the uploaded file
+        if ($document->doc_upload) {
+            \Storage::disk('public')->delete($document->doc_upload);
+        }
+
+        $document->delete();
+
+        return redirect()->route('documents.index')
+            ->with('success', 'Document deleted successfully!');
     }
 }
